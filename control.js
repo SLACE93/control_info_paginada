@@ -6,6 +6,8 @@ Autor: Ing. Cesar San Lucas Alvarado
 
 var initial_Page = 1;
 
+/*Display_Info_Items es un componente para realizar el renderizado de la lista de elementos
+que se tiene en info_items*/
 class Display_Info_Items extends React.Component{
   render(){
     return(
@@ -22,6 +24,11 @@ class Display_Info_Items extends React.Component{
   }
 }
 
+/*Info_Container es un componente que mantiene un arreglo de Info_items como estado actual, que representan
+a los 10 elementos que deben constar en una Pagina actual, ademas un estado para la
+pagina actual(current_page) que es utilizada para definir a info_items, en caso de que se actualice el estado
+current_page se actualizara la lista de elementos de info_items, esto ocurre cuando se presiona
+los botones de Anterior y Siguiente*/
 class Info_Container extends React.Component{
   constructor(props){
     super(props);
@@ -59,6 +66,9 @@ class Info_Container extends React.Component{
     );
   }
 
+  /* Funcion para generar los requerimientos Ajax para obtener la informacion,
+  se realizan 10 requerimientos para obtener la info, por cada operacion al presionar
+  los botones de Anterior o Siguiente*/
   getInfo_json_from_url(){
     var _this = this;
     var index = this.state.current_page;
@@ -82,6 +92,9 @@ class Info_Container extends React.Component{
   }
 }
 
+/* Componente Update_Info_btn para manejar como su estado el numero de pagina
+y las acciones en los botones Anterior y Siguiente que realizan un update a
+de incrementar o disminuir su estado dependiendo el caso*/
 class Update_Info_btn extends React.Component {
   constructor(props) {
     super(props);
@@ -124,6 +137,8 @@ class Update_Info_btn extends React.Component {
   }
 }
 
+/* Componente para inicializar el Renderizado inicial con el componente Update_Info_btn
+e inicializando el estado inicial del numero de Pagina usado en la paginacion */
 class MainApp extends React.Component {
   render() {
     return (
