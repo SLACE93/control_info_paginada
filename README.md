@@ -4,4 +4,4 @@ Control para visualizar información de forma paginada (Max: 10 por página), la
 
 Desarrollado utilizando la libreria React v15.4.2
 
-Autor: Ing. Cesar San Lucas Alvarado
+Autor: Ing. César San Lucas Alvarado
